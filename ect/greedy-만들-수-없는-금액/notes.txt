@@ -1,0 +1,17 @@
+May 30:
+Before writing the code, 
+use pen & paper to draw diagrams/write the numbers
+and write out/draw potential solutions
+only when you think you've found a good one do you start coding.
+
+If you start coding immediately, you'll likely go down the wrong rabbit hole.
+
+June 1:
+Yes, I re-tried this problem
+by using pencil and paper to write the numbers & test out a potential solution
+before coding.
+Once I found a potential solution, I started coding.
+I was able to write an elegant & fast solution, even though I didn't
+exactly remember NDB's solution & was a bit stuck at the beginning.
+
+Pen/pencil & paper is key (esp. for greedy problems I think).

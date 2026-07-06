@@ -1,0 +1,6 @@
+After seeing the NDB solution, I realized:
+
+1. think about what you need to solve the problem
+you might be doing too much
+do you really need to create a 2D list to get the 
+max count of adventurer groups? No you don't.

@@ -1,0 +1,7 @@
+This time, you tried to write out the math, but you tried to 
+find a solution by coincidence, not by understanding.
+So, when your solution didn't work, you didn't know what to do.
+
+Don't be satisfied with coincidence. Don't stop reading the problem
+until you truly understand it.
+Minutes of planning can save you hours of coding.
