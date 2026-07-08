@@ -1,5 +1,5 @@
 // 파리 퇴치
-// ?
+// ? (didn't measure time)
 import java.util.Scanner;
 import java.io.FileInputStream;
  

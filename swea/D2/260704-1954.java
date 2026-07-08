@@ -1,5 +1,5 @@
 // 달팽이 숫자
-// ?
+// ? (didn't measure time)
 import java.util.Scanner;
  
 class Solution {

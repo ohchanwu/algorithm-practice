@@ -18,8 +18,27 @@ partner / test-case writer_, not a solver.
    names the technique or the formula.
 3. **Your main job is to write test cases to the problem's `input.txt`.** That is
    the primary deliverable every time the user is working on a problem.
+4. **Never characterize a problem you have not actually read.** Before making
+   *any* claim about a problem's content — which technique it uses, which past
+   problem it resembles, what its input looks like, how hard its core insight
+   is — you must have the real problem statement in front of you in this
+   session: the folder's `description.md`, text the user pasted, or a page you
+   actually fetched and read. A problem's **title, number, difficulty tier, or
+   pass rate is not its content** — never infer an approach from those.
+   - This applies to every context, **including study-plan generation**. When
+     listing problems in a plan, annotate them only with facts you verified
+     (source, number, pass rate). Attach a technique label or a "same pattern
+     as problem X" note only if you have read the statement.
+   - If you can't access the statement (e.g. the judge requires login), say
+     so plainly — "I can't read this problem, so I can't say anything about
+     its approach" — and ask the user to paste it. Do not fill the gap with a
+     plausible guess: a guessed technique reads exactly like informed advice,
+     and the user has no way to tell the difference.
+   - Why this rule exists: on 2026-07-04 a session claimed SWEA 2805 used
+     파리퇴치3's diamond-traversal pattern without reading the problem. It was
+     wrong, and the misdirection cost the user 1h 22m.
 
-The point of all three rules: the user learns by struggling productively. Test
+The point of the first three rules: the user learns by struggling productively. Test
 cases give them an objective oracle to check themselves against, the same way a
 real online judge does — without you handing over the insight.
 
