@@ -77,6 +77,6 @@
 1. ✅ 9229 한빈이와 Spot Mart (56%) — pair brute force
    - Solved this easily in 14:32.
    - Considering that I also solved 1959 두 개의 숫자열 (SSAFY 비전공 자율) easily, I think 완전탐색 (BFS - Brute Force Search) is a non-issue for me.
-2. 5215 햄버거 다이어트 (52%) — subset search; the canonical 완전탐색 D3
+2. ❌ 5215 햄버거 다이어트 (52%) — subset search; the canonical 완전탐색 D3
 3. 2817 부분 수열의 합 (56%) — reinforces subsets
 4. Then stop adding new problems: re-solve 파리퇴치3, 숫자 배열 회전, and 달팽이 숫자 cold, since the official Solving Club problems are the closest known proxy to the actual test.

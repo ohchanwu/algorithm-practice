@@ -1,4 +1,4 @@
-// 5215. 햄버거 다이어
+// 5215. 햄버거 다이어트
 // ? (didn't measure time)
 import java.util.Scanner;
  
