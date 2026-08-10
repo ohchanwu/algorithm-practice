@@ -6,7 +6,13 @@ public class Solution {
     static {
         try {
             System.setIn(new FileInputStream("../input.txt"));
-        } catch (Exception ignored) {}
+        } catch (Exception e) {
+        	try {
+        		System.setIn(new FileInputStream("./input.txt"));
+        	} catch (Exception e2) {
+        		System.out.println("input.txt not found");
+        	}
+        }
     }
 
     static BufferedReader br = 
