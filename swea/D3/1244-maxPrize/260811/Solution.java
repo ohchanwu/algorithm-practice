@@ -1,78 +1,103 @@
-// Not complete
+// approx 47:00
 import java.io.*;
 import java.util.*;
-
+ 
 public class Solution {
     // comment out this block before pasting into SWEA
     static {
         try {
             System.setIn(new FileInputStream("../input.txt"));
         } catch (Exception e) {
-        	try {
-        		System.setIn(new FileInputStream("./input.txt"));
-        	} catch (Exception e2) {
-        		System.out.println("input.txt not found");
-        	}
+          try {
+              System.setIn(new FileInputStream("./input.txt"));
+          } catch (Exception e2) {
+              System.out.println("input.txt not found");
+          }
         }
     }
-
+ 
     static BufferedReader br = 
         new BufferedReader(new InputStreamReader(System.in));
     static StringBuilder sb = new StringBuilder();
     static StringTokenizer st;
-    static int numOfSwitches;
     static int[] scores;
-    static int numOfScores;
-    static int maxScore;
-    static boolean[] visited;
-    static int[] currPair = new int[2];
-    
-
+    static int[] scoresClone;
+    // Each top-level arr idx reps a branch layer,
+    // and each str val is a state node that reps 
+    // its branch in that layer.
+    // Layers are based on num of swaps.
+    static Set<String>[] seen;
+    static int maxTotalScore;
+    static int numOfSwaps;
+ 
     public static void main(String[] args) throws Exception {
         int T = Integer.parseInt(br.readLine().trim());
-
+ 
         for (int t = 1; t <= T; t++) {
-        	st = new StringTokenizer(br.readLine());
-        	String scoresStr = st.nextToken();
-        	numOfSwitches = Integer.parseInt(st.nextToken());
-        	
-        	scores = scoresStr.codePoints().toArray();
-        	numOfScores = scores.length;
-        	visited = new boolean[numOfScores];
-        	
-        	permutation(0);
-        	
+            st = new StringTokenizer(br.readLine());
+             
+            String scoreStr = st.nextToken();
+            scores = scoreStr.chars().map((c) -> {
+                return c - '0';
+            }).toArray();
+             
+            numOfSwaps = Integer.parseInt(st.nextToken());
+            seen = new HashSet[numOfSwaps];
+            for (int i = 0; i < numOfSwaps; i++) {
+                seen[i] = new HashSet<String>();
+            }
+             
+            permutation(0);
+             
             sb.append('#')
                 .append(t)
                 .append(' ')
-                .append(maxScore)
+                .append(maxTotalScore)
                 .append('\n');
-            
-            maxScore = 0;
+             
+            maxTotalScore = 0;
         }
         System.out.print(sb);
     }
-    
-    static void permutation(int depth) {
-    	if (depth == 2) {
-    		maxScore = Math.max(maxScore, calcScore());
-    		return;
-    	}
-    	
-    	for (int i = 0; i < numOfScores; i++) {
-    		if (visited[i]) {
-    			continue;
-    		}
-    		visited[i] = true;
-    		permutation(depth+1);
-    	}
+     
+    static void permutation(int swaps) {
+        if (swaps == 0) {
+            scoresClone = scores.clone();
+        }
+        if (swaps == numOfSwaps) {
+            calcMaxTotalScore();
+            return;
+        }
+         
+        if (seen[swaps].contains(Arrays.toString(scoresClone))) {
+            return;
+        }
+        seen[swaps].add(Arrays.toString(scoresClone));
+         
+        for (int i = 0; i < scores.length; i++) {
+            for (int j = 0; j < scores.length; j++) {
+                if (j == i) continue;
+                swap(i, j);
+                permutation(swaps+1);
+                 
+                // backtracking
+                swap(i, j);
+            }
+        }
     }
-    
-    static int calcScore() {
-    	int[] scoreArrClone = scores.clone();
-    	int temp = scoreArrClone[currPair[0]];
-    	scoreArrClone[currPair[0]] = scoreArrClone[currPair[1]];
-    	scoreArrClone[currPair[1]] = temp;
-    	return Integer.parseInt(String.valueOf(scores));
+     
+    static void swap(int i , int j) {
+        int temp = scoresClone[i];
+        scoresClone[i] = scoresClone[j];
+        scoresClone[j] = temp;
+    }
+     
+    static void calcMaxTotalScore() {
+        int currTotalScore = 0;
+        for (int i = 0; i < scores.length; i++) {
+            currTotalScore += scoresClone[i] 
+                    * Math.pow(10, scores.length - i - 1);
+        }
+        maxTotalScore = Math.max(maxTotalScore, currTotalScore);
     }
 }
